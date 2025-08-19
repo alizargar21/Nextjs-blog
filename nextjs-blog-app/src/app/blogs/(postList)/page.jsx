@@ -1,13 +1,13 @@
-import React from 'react'
-import PostList from '../_components/PostList'
-import { getPosts } from '@/services/postServices'
+import React from "react";
+import PostList from "../_components/PostList";
+import { getPosts } from "@/services/postServices";
 
 const BlogPage = async () => {
- const posts =  await getPosts()
- console.log(posts)
+  const posts = await getPosts();
+  console.log(posts);
   return (
     <div>
-       {/* {search ? (
+      {/* {search ? (
         <p className="mb-4 text-secondary-700">
           {posts.length === 0
             ? "هیچ پستی با این مشخصات یافت نشد"
@@ -15,9 +15,9 @@ const BlogPage = async () => {
           <span className="font-bold">&quot;{search}&quot;</span>
         </p>
       ) : null} */}
-         { posts.length === 0 ? null :  <PostList posts={posts} />}
+      {posts.length === 0 ? null : <PostList posts={posts} />}
     </div>
-  )
-}
+  );
+};
 
-export default BlogPage
+export default BlogPage;
