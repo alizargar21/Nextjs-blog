@@ -1,5 +1,5 @@
-// import PostComment from "@/pages/_components/comments/postComment";
-// import RelatedPost from "@/pages/_components/RealatedPost";
+import PostComment from "@/pages/blogs/_components/comment/PostComment";
+import RelatedPost from "@/pages/blogs/_components/RelatedPost";
 import { getPostBySlug, getPosts } from "@/services/postServices";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -35,8 +35,8 @@ async function BlogDetail({ params }) {
           fill
         />
       </div>
-      {/* {post.related.length > 0 && <RelatedPost posts={post.related} />} */}
-      {/* <PostComment post={post} /> */}
+      {post.related.length > 0 && <RelatedPost posts={post.related} />} 
+       <PostComment post={post} />
     </div>
   );
 }
