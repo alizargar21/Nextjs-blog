@@ -1,6 +1,6 @@
 "use client";
 
-import { bookmarkPostApi, likePostApi } from "@/services/postServices";
+import {  bookMarkPostApi, likePostApi } from "@/services/postServices";
 import ButtonIcon from "@/ui/ButtonIcon";
 import { toPersianDigits } from "@/utils/numberFormatter";
 
@@ -15,15 +15,25 @@ import {
   BookmarkIcon as SolidBookmarkIcon,
 } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
-
 import toast from "react-hot-toast";
 
 function PostInteraction({ post }) {
   const router = useRouter();
+  const bookmarkHandler = async (postId) => {
+    console.log(postId)
+    
+    try {
+      const { message } = await bookMarkPostApi(postId);
+      toast.success(message);
+      router.refresh();
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
 
+    }
+  };
   const likeHandler = async (postId) => {
     try {
-      const { message } = await likePostApi(postId);
+      const {message} = await likePostApi(postId);
       toast.success(message);
       router.refresh();
     } catch (error) {
@@ -31,15 +41,7 @@ function PostInteraction({ post }) {
     }
   };
 
-  const bookmarkHandler = async (postId) => {
-    try {
-      const { message } = await bookmarkPostApi(postId);
-      toast.success(message);
-      router.refresh();
-    } catch (error) {
-      toast.error(error?.response?.data?.message);
-    }
-  };
+  
 
   return (
     <div className="flex items-center gap-x-4">

@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 function CoverImage({ title, coverImageUrl, slug }) {
-  console.log(coverImageUrl);
   return (
     <div className="relative w-full min-h-[200px] aspect-video overflow-hidden rounded-md mb-6">
       <Link href={`/blogs/${slug}`}>

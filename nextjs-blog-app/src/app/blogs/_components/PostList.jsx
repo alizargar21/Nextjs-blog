@@ -2,13 +2,11 @@ import CoverImage from "./CoverImage";
 import Link from "next/link";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import Author from "./Author";
-import { Suspense } from "react";
-import PostCardSkeleton from "./PostCardSkeleton";
+
 import PostInteraction from "./PostInteraction";
 
 async function PostList({posts}) {
-  await new Promise((res) => setTimeout(res, 1000));
-
+ 
   return posts.length > 0 ? (
     <div className="grid grid-cols-12 gap-8">
     

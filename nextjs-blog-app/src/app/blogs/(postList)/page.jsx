@@ -1,10 +1,14 @@
 import React from "react";
 import PostList from "../_components/PostList";
 import { getPosts } from "@/services/postServices";
+import { setCookieOnReq } from "@/utils/setCookieOnReq";
+import { cookies } from "next/headers";
 
 const BlogPage = async () => {
-  const posts = await getPosts();
-  console.log(posts);
+  const cookiesStore = await  cookies();
+  const options =  await setCookieOnReq(cookiesStore);
+  const posts = await getPosts( options);
+
   return (
     <div>
       {/* {search ? (
@@ -16,6 +20,7 @@ const BlogPage = async () => {
         </p>
       ) : null} */}
       {posts.length === 0 ? null : <PostList posts={posts} />}
+      
     </div>
   );
 };

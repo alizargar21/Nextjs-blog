@@ -1,6 +1,6 @@
 export async function setCookieOnReq(cookies) {
-  const accessToken = cookies.get("accessToken");
-  const refreshToken = cookies.get("refreshToken");
+  const accessToken =await cookies.get("accessToken");
+  const refreshToken = await cookies.get("refreshToken");
     const options = {
       method: "GET",
       credentials: "include",
