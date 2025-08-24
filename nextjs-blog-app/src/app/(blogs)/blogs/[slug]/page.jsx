@@ -7,7 +7,7 @@ import React from "react";
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
-  const posts = await getPosts();
+  const {posts} = await getPosts();
   const slug = posts.map((post) => ({ slug: post.slug }));
   return slug;
 }

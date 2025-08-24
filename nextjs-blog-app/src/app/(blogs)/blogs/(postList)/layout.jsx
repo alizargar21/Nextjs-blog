@@ -1,11 +1,8 @@
 import React, { Suspense } from "react";
 import CategoryList from "../_components/CategoryList";
-import Spinner from "@/ui/Spinner";
 import CategoryListSkeleton from "../_components/CategoryListSkeleton";
-
 import PostListSkeleton from "../_components/PostListSkeleton";
 import Search from "@/ui/Search";
-// import Search from "@/ui/Search";
 export const metadata = {
   title: "بلاگ ها",
   description: "وب اپلیکیشن مدیریت بلاگ ها و نظرات کاربران",
@@ -24,10 +21,7 @@ const layout = ({ children }) => {
           </Suspense>
         </div>
         <div className="col-span-12 lg:col-span-9  border border-secondary-400 p-4">
-            <Suspense fallback={<PostListSkeleton />}>
-                    {children}
-
-          </Suspense>
+          <Suspense fallback={<PostListSkeleton />}>{children}</Suspense>
         </div>
       </div>
     </div>

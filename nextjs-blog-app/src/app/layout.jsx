@@ -23,11 +23,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="rtl">
       <body className={`${vazirFont.variable} font-sans  antialiased`}>
-        <AuthProvider>
-          <Toaster />
-          <Header />
-          <div className="container">{children}</div>
-        </AuthProvider>
+        <Toaster />
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
